@@ -1,32 +1,33 @@
 import {
   createRouter,
-  createWebHistory,
+  createWebHashHistory,
   RouteRecordRaw
 } from 'vue-router';
-import Home from '@/views/home.vue';
-import Vuex from '@/views/vuex.vue';
+import Layout from '@/layout/index.vue';
 
-const routes: Array<RouteRecordRaw> = [
+export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/',
-    name: 'Vuex',
-    component: Vuex
-  },
-  {
-    path: '/',
-    name: 'Axios',
-    component: () => import('@/views/axios.vue')  // 懒加载组件
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index.vue'), // 路由懒加载
+        name: 'dashboard',
+        meta: {
+          title: 'dashboard',
+          icon: '#icondashboard',
+          affix: true
+        }
+      }
+    ]
   }
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHashHistory(),
+  routes: constantRoutes
 });
 
 export default router;
