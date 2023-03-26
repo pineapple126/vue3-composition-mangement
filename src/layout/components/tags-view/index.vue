@@ -1,5 +1,5 @@
 <template>
-  <div>TagsView</div>
+	<div>TagsView</div>
 </template>
 
 <script setup lang="ts"></script>
