@@ -19,7 +19,7 @@ export default defineConfig({
 	base: './',
 	server: {
 		port: 4000, // 设置服务启动端口
-		open: true, // 设置服务启动时是否自动打开浏览器
+		open: false, // 设置服务启动时是否自动打开浏览器
 		cors: true // 允许跨域
 
 		// 设置代理，根据项目实际情况配置
@@ -31,5 +31,12 @@ export default defineConfig({
 		//     rewrite: (path) => path.replace('/api/', '/')
 		//   }
 		// }
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: '@use "@/styles/index.scss" as *;'
+			}
+		}
 	}
 });
