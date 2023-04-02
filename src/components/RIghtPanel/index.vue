@@ -11,11 +11,11 @@
 import { computed, ref } from 'vue';
 import { TDirection } from './types';
 
-interface IProps {
+interface Props {
 	buttonTop?: number;
 }
 
-withDefaults(defineProps<IProps>(), {
+withDefaults(defineProps<Props>(), {
 	buttonTop: 250
 });
 

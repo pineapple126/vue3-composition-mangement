@@ -1,0 +1,12 @@
+// 在 vite.config.js 中配置与载入 scss 文件后，再从 script 引入 scss 文件则会报错
+// 取巧方法：单独创建一个 xxx.module.scss 文件导出 scss 变量，用于 js 文件引入使用
+
+$menuBg: #fff;
+$menuText: #162B64;
+$menuActiveText: #435EBE; // Also see settings.sidebarTextTheme
+
+:export {
+  menuBg: $menuBg;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+}

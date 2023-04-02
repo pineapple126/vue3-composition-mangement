@@ -35,7 +35,10 @@ export default defineConfig({
 	css: {
 		preprocessorOptions: {
 			scss: {
-				additionalData: '@use "@/styles/index.scss" as *;'
+				additionalData: `
+          @use "@/styles/mixins.scss" as *;
+          @use "@/styles/variables.scss" as *;
+        `
 			}
 		}
 	}
